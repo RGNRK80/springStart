@@ -2,6 +2,8 @@ package by.spring.course;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
+
 public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context= new ClassPathXmlApplicationContext(
@@ -14,7 +16,14 @@ public class TestSpring {
        // MusicPlayer musicPlayer= new MusicPlayer(music);
 
         MusicPlayer musicPlayer=context.getBean("musicPlayer",MusicPlayer.class);
+      /*  ArrayList<Music> newList = new ArrayList<>();
+        newList.add(new RapMusic());
+        newList.add(new ClassicalMusic());
+        newList.add(new RockMusic());
+        musicPlayer.setMusicList(newList);*/
+
         musicPlayer.playMusic();
+        musicPlayer.playMusicList();
 
         System.out.println(musicPlayer.getName());
         System.out.println(musicPlayer.getMusic());

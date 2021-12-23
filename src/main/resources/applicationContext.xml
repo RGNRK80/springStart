@@ -15,13 +15,34 @@
     <bean id="musicBean"
           class="by.spring.course.RockMusic">
     </bean>
-   <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="musicBean1"
+          class="by.spring.course.RockMusic">
+    </bean>
+    <bean id="musicBean2"
+          class="by.spring.course.RapMusic">
+    </bean>
+    <bean id="musicBean3"
+          class="by.spring.course.ClassicalMusic">
+    </bean>
+
+
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicPlayer"
-          class="by.spring.course.MusicPlayer">
+        class="by.spring.course.MusicPlayer">
         <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
+        <property name="musicList">
+            <list>
+                <ref bean="musicBean1"/>
+                <ref bean="musicBean2"/>
+                <ref bean="musicBean3"/>
+
+            </list>
+        </property>
     </bean>
 
 
