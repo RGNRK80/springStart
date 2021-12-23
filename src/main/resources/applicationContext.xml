@@ -15,10 +15,13 @@
     <bean id="musicBean"
           class="by.spring.course.RockMusic">
     </bean>
+   <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicPlayer"
           class="by.spring.course.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 
